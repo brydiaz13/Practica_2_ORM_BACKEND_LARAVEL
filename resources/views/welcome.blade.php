@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html,body{
-                background-color: #fff;
+                background-color: #FAD7A0;
                 color: #636b6f;
                 font-family: 'Nunito',sans-serif;
                 font-weight: 200;
@@ -50,13 +50,19 @@
             }
 
             .links>a{
-                color:#636b6f;
+                color:#FFF;
                 padding:0 25px;
                 font-size:13px;
                 font-weight: 600;
                 letter-spacing:.1rem;
                 text-decoration:none;
                 text-transform:uppercase;
+                transition:transform 0.7s ease, color 0.7s ease;
+            }
+
+            .links>a:hover{
+                color:#d35400;
+                transform: transleteX(-80px);
             }
 
             .m-b-md{
@@ -69,7 +75,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md", style="color: #fff; text-align: center; margin-top: -80px;">
                    Enloquent: Relaciones
                 </div>
 
