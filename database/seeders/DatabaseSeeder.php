@@ -10,7 +10,7 @@ use App\Models\Location;
 use App\Models\Image;
 use App\Models\Category;
 use App\Models\Tag;
-use App\Models\Post; // Corregido de Pots a Post
+use App\Models\Post; 
 use App\Models\Video;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
@@ -23,15 +23,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Sembrar grupos
+  
         Group::factory(3)->create();
 
-        // Sembrar niveles
+
         Level::factory(3)->create(['name' => 'Oro']);
         Level::factory(3)->create(['name' => 'Plata']);
         Level::factory(3)->create(['name' => 'Bronce']);
 
-        // Sembrar usuarios con perfiles y otros datos relacionados
+        
         User::factory(5)->create()->each(function ($user) {
             $profile = $user->profile()->save(Profile::factory()->make());
             $profile->location()->save(Location::factory()->make());
@@ -43,13 +43,13 @@ class DatabaseSeeder extends Seeder
             ]));
         });
 
-        // Sembrar categorías
+        
         Category::factory(5)->create();
 
-        // Sembrar etiquetas
+        
         Tag::factory(12)->create();
 
-        // Sembrar publicaciones con imágenes y comentarios
+        
         Post::factory(40)->create()->each(function ($post) {
             $post->image()->save(Image::factory()->make());
             $post->tags()->attach($this->array(rand(1, 12)));
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             }
         });
 
-        // Sembrar videos con imágenes y comentarios
+        
         Video::factory(40)->create()->each(function ($video) {
             $video->image()->save(Image::factory()->make());
             $video->tags()->attach($this->array(rand(1, 12)));
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
         
     }
     /**
-     * Crea un array con valores del 1 al máximo especificado.
+     * 
      *
      * @param int $max
      * @return array
